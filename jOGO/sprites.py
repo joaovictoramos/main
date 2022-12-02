@@ -7,7 +7,7 @@ class BG(pygame.sprite.Sprite):
     
     def __init__(self,groups,scale_factor):
         super().__init__(groups)
-        bg_image = pygame.image.load("bird/assets/background_resized.png").convert()
+        bg_image = pygame.image.load("jOGO/bird/assets/background_resized.png").convert()
 
         full_height = bg_image.get_height() * scale_factor
         full_width  = bg_image.get_width() * scale_factor
@@ -31,7 +31,7 @@ class Ground(pygame.sprite.Sprite):
         super().__init__(groups)
         self.sprite_type = 'ground'
 
-        ground_surf = pygame.image.load("bird/assets/ground.png").convert_alpha()
+        ground_surf = pygame.image.load("jOGO/bird/assets/ground.png").convert_alpha()
         self.image = pygame.transform.scale(ground_surf,pygame.math.Vector2(ground_surf.get_size()) * scale_factor)
         
         self.rect = self.image.get_rect(bottomleft = (0,WINDOW_HEIGHT))
@@ -62,13 +62,13 @@ class Plane(pygame.sprite.Sprite):
 
         self.mask = pygame.mask.from_surface(self.image)
 
-        self.jump_sound = pygame.mixer.Sound("bird/assets/jump.wav")
+        self.jump_sound = pygame.mixer.Sound("jOGO/bird/assets/jump.wav")
         self.jump_sound.set_volume(0.2)
 
     def import_frame(self,scale_factor):
         self.frames = []
         for i in range(2):
-            surf = pygame.image.load(f"bird/assets/plane_{i}.png").convert_alpha()
+            surf = pygame.image.load(f"jOGO/bird/assets/plane_{i}.png").convert_alpha()
             scaled_surface = pygame.transform.scale(surf,pygame.math.Vector2(surf.get_size()) * scale_factor)
             self.frames.append(scaled_surface)
 
@@ -103,7 +103,7 @@ class Obstacle(pygame.sprite.Sprite):
         self.sprite_type = 'obstacle'
 
         orientation = choice(('up','down'))
-        surf = pygame.image.load(f"bird/assets/{choice((0,1))}.png").convert_alpha()
+        surf = pygame.image.load(f"jOGO/bird/assets/{choice((0,1))}.png").convert_alpha()
         self.image = pygame.transform.scale(surf,pygame.math.Vector2(surf.get_size()) * scale_factor)
 
         x = WINDOW_WIDTH + randint(40,100)
