@@ -16,7 +16,7 @@ class Game:
         self.all_sprites = pygame.sprite.Group()
         self.collission_sprites = pygame.sprite.Group()
 
-        bg_height = pygame.image.load("bird/assets/background_resized.png").get_height()
+        bg_height = pygame.image.load("jOGO/bird/assets/background_resized.png").get_height()
         self.scale_factor = WINDOW_HEIGHT / bg_height
         
         BG(self.all_sprites,self.scale_factor)
@@ -26,14 +26,14 @@ class Game:
         self.obstacle_timer = pygame.USEREVENT + 1
         pygame.time.set_timer(self.obstacle_timer,1400)
         
-        self.font = pygame.font.Font("bird/assets/BD_Cartoon_Shout.ttf",30)
+        self.font = pygame.font.Font("jOGO/bird/assets/BD_Cartoon_Shout.ttf",30)
         self.score = 0
         self.start_offset = 0
 
-        self.menu_surf = pygame.image.load("bird/assets/menu.png").convert_alpha()
+        self.menu_surf = pygame.image.load("jOGO/bird/assets/menu.png").convert_alpha()
         self.menu_rect = self.menu_surf.get_rect(center = (WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2))
 
-        self.music = pygame.mixer.Sound("bird/assets/music.mp3")
+        self.music = pygame.mixer.Sound("jOGO/bird/assets/music.mp3")
         self.music.set_volume(0.3)
         self.music.play(loops = -1)
 
